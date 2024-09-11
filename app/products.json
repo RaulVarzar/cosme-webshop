@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "Primers",
+    "image": "hero.png"
+  },
+  {
+    "id": 2,
+    "title": "Night Creams",
+    "image": "hero2.png"
+  },
+  {
+    "id": 3,
+    "title": "Moisturisers",
+    "image": "hero2.png"
+  },
+  {
+    "id": 4,
+    "title": "Day Creams",
+    "image": "hero2.png"
+  }
+]
