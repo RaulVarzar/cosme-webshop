@@ -12,6 +12,9 @@ module.exports = {
       maxWidth: {
         "8xl": "96rem",
       },
+      borderWidth: {
+        1: "1px",
+      },
     },
   },
   plugins: [daisyui],
