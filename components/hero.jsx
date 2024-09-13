@@ -6,10 +6,38 @@ import Categories from "./heroSection/categories";
 import FeaturedProduct from "./heroSection/featuredProduct";
 
 const DATA = [
-  { id: 0, title: "Primers", photo: "hero1.png" },
-  { id: 1, title: "Night Creams", photo: "hero2.png" },
-  { id: 2, title: "Moisturisers", photo: "hero3.png" },
-  { id: 3, title: "Day Creams", photo: "hero.png" },
+  {
+    id: 0,
+    title: "Primers",
+    photo: "hero1.png",
+    featuredBrand: "Cosme",
+    featuredProduct: "Illuminating face primer",
+    link: "/#",
+  },
+  {
+    id: 1,
+    title: "Night Creams",
+    photo: "hero3.png",
+    featuredBrand: "Brand name",
+    featuredProduct: "Lorem Ipsum",
+    link: "/#",
+  },
+  {
+    id: 2,
+    title: "Moisturisers",
+    photo: "hero2.png",
+    featuredBrand: "Omorovicza",
+    featuredProduct: "Balancing Moisturiser",
+    link: "/#",
+  },
+  {
+    id: 3,
+    title: "Day Creams",
+    photo: "hero.png",
+    featuredBrand: "Brand name",
+    featuredProduct: "Lorem Ipsum",
+    link: "/#",
+  },
 ];
 
 export default function Hero() {

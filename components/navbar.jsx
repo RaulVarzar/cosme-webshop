@@ -18,7 +18,7 @@ const Navbar = () => {
     }
   }
   useEffect(() => {
-    return scrollY.onChange(() => update());
+    return scrollY.on("change", () => update());
   });
 
   return (

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const FeaturedProduct = ({ data, selectedCategory }) => {
   return (
@@ -15,14 +16,16 @@ const FeaturedProduct = ({ data, selectedCategory }) => {
       </div>
       <div className="md:w-1/2 px-12 lg:px-16 xl:px-20 max-sm:text-center">
         <span className="font-light text-base-content text-md sm:text-lg lg:text-2xl">
-          Limited edition
+          {data[selectedCategory].featuredBrand}
         </span>
         <h2 className="font-semibold text-balance text-neutral text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl max-w-80">
-          Illuminating Face Primer
+          {data[selectedCategory].featuredProduct}
         </h2>
-        <button className="border-1 hover:bg-accent hover:border-accent transition-all duration-200 ease-out rounded-sm py-3 px-6 btn-accent border-neutral text-neutral hover:text-base-100 mt-2 md:mt-4 md:px-10 text-sm sm:text-lg lg:text-xl font-bold">
-          Shop now
-        </button>
+        <Link href={data[selectedCategory].link}>
+          <button className="border-1 hover:bg-accent hover:border-accent transition-all duration-200 ease-out rounded-sm py-3 px-6 btn-accent border-neutral text-neutral hover:text-base-100 mt-2 md:mt-4 md:px-10 text-sm sm:text-lg lg:text-xl font-bold">
+            Shop now
+          </button>
+        </Link>
       </div>
     </>
   );

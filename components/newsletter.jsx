@@ -2,17 +2,17 @@ import React from "react";
 
 export const Newsletter = () => {
   return (
-    <div className="flex flex-row w-full justify-around items-center max-w-7xl gap-x-12 py-10 md:py-12 lg:py-16 xl:py-20 border-t-1 mt-2 md:mt-4 lg:mt-8 xl:mt-12">
-      <div className="flex flex-col gap-3 md:gap-4 lg:gap-6 max-w-sm">
-        <h2 className="font-bold text-lg md:text-2xl lg:text-4xl text-neutral">
+    <div className="flex flex-col sm:flex-row w-full justify-around items-center max-w-7xl gap-y-8 gap-x-12 py-10 md:py-12 lg:py-16 xl:py-20 border-t-1 mt-2 md:mt-4 lg:mt-8 xl:mt-12">
+      <div className="flex flex-col gap-1 sm:gap-2.5 md:gap-4 lg:gap-6 w-full text-center text-balance sm:max-w-sm max-sm:px-8">
+        <h2 className="font-bold text-xl md:text-2xl lg:text-4xl text-neutral">
           NEWSLETTER
         </h2>
         <p className="font-medium">
           Subscribe to our newsletter and get the latest updates and promotions
         </p>
       </div>
-      <div className="flex flex-col md:flex-row gap-3 grow justify-center">
-        <label className="input input-bordered flex items-center gap-2 w-full max-w-md">
+      <div className="flex flex-col md:flex-row gap-3 grow w-full justify-center">
+        <label className="input input-bordered flex items-center gap-2 w-full max-w-md max-sm:mx-auto">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -24,7 +24,9 @@ export const Newsletter = () => {
           </svg>
           <input type="text" className="grow" placeholder="Email" />
         </label>
-        <button className="btn btn-accent btn-outline">Subscribe</button>
+        <button className="btn btn-accent btn-outline max-w-md max-sm:mx-auto">
+          Subscribe
+        </button>
       </div>
     </div>
   );
