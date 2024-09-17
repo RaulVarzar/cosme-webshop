@@ -51,7 +51,7 @@ export const Collection = ({ data }) => {
         <img
           src={`collections/${data.photo}`}
           alt=""
-          className="ma-w-48 max-h-48 z-50 rounded-xl sm:max-w-60 max-w-fit sm:max-h-60 md:max-w-80 md:max-h-80 xl:max-w-96 xl:max-h-96 object-f"
+          className="z-50 ma-w-48 max-h-48 rounded-xl sm:max-w-60 max-w-fit sm:max-h-60 md:max-w-80 md:max-h-80 xl:max-w-96 xl:max-h-96 object-f"
         />
       </div>
       <motion.div
@@ -66,12 +66,12 @@ export const Collection = ({ data }) => {
           mass: 0.2,
           stiffness: 90,
         }}
-        className="flex flex-col -z-20 group-hover:z-20 items-start"
+        className="flex flex-col items-start -z-20 group-hover:z-20"
       >
-        <span className="text-sm sm:text-md md:text-lg lg:text-xl font-medium opacity-40 group-hover:opacity-75">
+        <span className="text-sm font-medium sm:text-md md:text-lg lg:text-xl opacity-40 group-hover:opacity-75">
           Collection
         </span>
-        <h2 className="text-md sm:text-xl md:text-2xl lg:text-3xl font-semibold opacity-70 group-hover:opacity-100">
+        <h2 className="font-semibold text-md sm:text-xl text-base-content md:text-2xl lg:text-3xl opacity-80 group-hover:opacity-100">
           {data.title}
         </h2>
       </motion.div>

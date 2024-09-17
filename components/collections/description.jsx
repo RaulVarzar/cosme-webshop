@@ -34,7 +34,7 @@ export const Description = () => {
       ref={ref}
       //   variants={containerVariants}
       initial="hidden"
-      animate={isInView ? "visible" : !leftView && "hidden"}
+      animate={isInView && "visible"}
       transition={{
         duration: 2,
         damping: 10,
@@ -43,7 +43,7 @@ export const Description = () => {
         stiffness: 50,
         staggerChildren: 0.2,
       }}
-      className="flex justify-center sm:justify-left flex-col font-medium opacity-50 text-sm sm:text-md text-base-content"
+      className="flex flex-col justify-center text-sm font-medium opacity-50 sm:justify-left sm:text-md xl:text-lg text-base-content"
     >
       <motion.span variants={childrenVariants}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit.{" "}

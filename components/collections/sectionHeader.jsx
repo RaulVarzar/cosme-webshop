@@ -11,14 +11,15 @@ const linkVariants = {
 
 export const Header = () => {
   return (
-    <div className="flex justify-center flex-col gap-6 md:w-5/12 pr-12 py-8 text-center md:text-left text-balance">
+    <div className="flex flex-col justify-center gap-6 py-8 pl-6 text-center md:pr-12 md:w-5/12 md:text-left text-balance">
       <Title />
       <Description />
       <motion.div
         variants={linkVariants}
         initial="hidden"
         whileInView="visible"
-        transition={{ duration: 0.6, ease: easeOut, delay: 0.5 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: easeOut, delay: 1.2 }}
       >
         <Link href="/">
           <span

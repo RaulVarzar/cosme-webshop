@@ -15,6 +15,9 @@ module.exports = {
       borderWidth: {
         1: "1px",
       },
+      aspectRatio: {
+        "4/5": "4 / 5",
+      },
     },
   },
   plugins: [daisyui],
@@ -26,6 +29,8 @@ module.exports = {
           "base-content": "#6c7485",
           "base-200": "#f6f6f6",
           accent: "#d49566",
+          "neutral-content": "#999",
+          "base-content": "#5f6573",
         },
       },
     ],

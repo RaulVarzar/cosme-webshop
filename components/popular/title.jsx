@@ -5,16 +5,16 @@ import { useRef } from "react";
 export const Title = () => {
   const variants = {
     hidden: {
-      y: "80%",
+      y: "200%",
       x: "-5%",
       rotate: "6deg",
-      scale: "0.85",
+      scale: "0.9",
       opacity: 0,
     },
     visible: {
       opacity: 1,
-      x: 0,
       y: "0%",
+      x: 0,
       rotate: "0deg",
       scale: "1",
     },
@@ -24,12 +24,7 @@ export const Title = () => {
 
   // for triggering reveal animations when entering the viewport by 10%
   const isInView = useInView(ref, {
-    margin: "-10% 0%",
-  });
-
-  // for hiding the element after leaving the viewport
-  const leftView = useInView(ref, {
-    margin: "5% 0%",
+    margin: "-15% 0%",
   });
 
   return (
@@ -40,15 +35,14 @@ export const Title = () => {
       animate={isInView && "visible"}
       transition={{
         type: "spring",
-        duration: 0.2,
-        damping: 8,
+        damping: 10,
         delay: 0.25,
-        mass: 0.4,
-        stiffness: 120,
+        mass: 0.3,
+        stiffness: 180,
       }}
-      className="text-5xl font-bold text-neutral"
+      className="text-5xl font-bold sm:pl-10 max-xl:text-center text-neutral"
     >
-      Collections
+      Popular
     </motion.h2>
   );
 };
