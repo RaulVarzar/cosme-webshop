@@ -24,7 +24,7 @@ export const Title = () => {
 
   // for triggering reveal animations when entering the viewport by 10%
   const isInView = useInView(ref, {
-    margin: "-10% 0%",
+    margin: "-18% 0%",
   });
 
   // for hiding the element after leaving the viewport

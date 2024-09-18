@@ -2,7 +2,7 @@ import { Title } from "./title";
 
 export const Newsletter = () => {
   return (
-    <div className="flex flex-col sm:flex-row w-full justify-around items-center max-w-7xl gap-y-8 gap-x-12 py-10 md:py-12 lg:py-16 xl:py-20 border-t-1 mt-2 md:mt-4 lg:mt-8 xl:mt-12">
+    <div className="flex flex-col sm:flex-row w-full mx-auto justify-around items-center max-w-7xl gap-y-8 gap-x-12 py-10 md:py-12 lg:py-16 xl:py-20 border-t-1 mt-2 md:mt-4 lg:mt-8 xl:mt-12">
       <div className="flex flex-col gap-1 sm:gap-2.5 md:gap-4 lg:gap-6 w-full text-center text-balance sm:max-w-sm max-sm:px-8">
         <Title />
         <p className="font-medium">

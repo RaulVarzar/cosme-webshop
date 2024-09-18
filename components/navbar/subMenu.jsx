@@ -1,47 +1,23 @@
 import { motion, spring, easeOut } from "framer-motion";
 import { Category } from "./category";
 
-const subMenuVariants = {
-  hidden: {
-    opacity: 1,
-    y: "0%",
-    transition: { delay: 0.15, duration: 0.12, type: "tween" },
-  },
-  visible: {
-    opacity: 1,
-    y: "100%",
-    transition: {
-      type: "spring",
-      damping: 14,
-      delay: 0.1,
-      mass: 0.3,
-      stiffness: 180,
-    },
-    boxShadow: "0px 12px 8px -8px rgba(0, 24, 23, 0.1)",
-  },
-};
-
 export const Submenu = ({ openSubmenu }) => {
   return (
-    <motion.div
-      variants={subMenuVariants}
-      initial="hidden"
-      animate={openSubmenu ? "visible" : "hidden"}
-      className={`absolute bottom-0 shadow-d left-0 w-full bg-base-100 py-8 px-4 -z-10 ${
-        openSubmenu ? "shadow-d" : " "
-      }`}
-    >
+    <motion.div className="p-8 w-full -z-10 ">
       <div className="flex flex-col items-start w-full gap-4 mx-auto sm:flex-row justify-evenly max-w-8xl">
         <Category
           title="Eyes"
+          open={openSubmenu}
           categories={["eyeshadow", "mascara", "eyeliner", "eye primer"]}
         />
         <Category
           title="Lips"
+          open={openSubmenu}
           categories={["lipstick", "lip gloss", "lip balm", "lip liner"]}
         />
         <Category
           title="Skin"
+          open={openSubmenu}
           categories={[
             "foundation",
             "face primer",
@@ -53,6 +29,7 @@ export const Submenu = ({ openSubmenu }) => {
         />
         <Category
           title="Brushes & Tools"
+          open={openSubmenu}
           categories={[
             "face brushes",
             "eye brushes",

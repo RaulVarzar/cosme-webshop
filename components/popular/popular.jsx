@@ -1,6 +1,8 @@
 "use client";
-import Carousel from "./carousel";
+import { useRef } from "react";
+import Grid from "./grid";
 import { Title } from "./title";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 const POPULAR = [
   {
@@ -34,11 +36,24 @@ const POPULAR = [
 ];
 
 const Popular = () => {
+  const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "start 0.4"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["15vh", "0vh"]);
+
   return (
-    <div className="flex flex-col w-full gap-8 py-12 text-5xl md:gap-12 xl:gap-16 lg:pt-20 xl:pt-32 max-w-8xl h-fit ">
+    <motion.div
+      ref={ref}
+      style={{ y }}
+      className="flex mx-auto flex-col w-full gap-8 py-12 text-5xl md:gap-12 xl:gap-24 lg:pt-32 xl:pt-40 max-w-8xl h-fit "
+    >
       <Title />
-      <Carousel data={POPULAR} />
-    </div>
+      <Grid data={POPULAR} />
+    </motion.div>
   );
 };
 

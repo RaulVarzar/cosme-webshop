@@ -30,7 +30,7 @@ const COLLECTIONS = [
 
 export const Collections = () => {
   return (
-    <div className="flex flex-col w-full gap-12 px-4 py-6 text-center max-w-8xl sm:py-16 md:py-24 lg:py-32 ">
+    <div className="flex flex-col mx-auto w-full gap-12 px-4 py-6 text-center max-w-8xl sm:py-16 md:py-24 lg:py-32 ">
       <div className="flex flex-row flex-wrap place-items-start gap-y-4 md:gap-y-8 lg:gap-y-12">
         <Header />
         {COLLECTIONS.map((collection, i) => (

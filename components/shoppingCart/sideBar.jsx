@@ -23,7 +23,7 @@ export const Cart = ({ isOpen, toggle }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className={`fixed  top-0 left-0 h-screen z-10 w-full transition-all bg-base-100 bg-opacity-40  backdrop-blur-lg  backdrop-contrast-75`}
+            className={`fixed inset-0  z-10 w-full transition-all bg-base-100 bg-opacity-40  backdrop-blur-lg  backdrop-contrast-75`}
             onClick={toggle}
           ></motion.div>
         )}

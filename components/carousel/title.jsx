@@ -1,19 +1,18 @@
-"use client";
-import { motion, useInView } from "framer-motion";
+import { useInView, motion } from "framer-motion";
 import { useRef } from "react";
 
-export const Title = () => {
+export const Title = ({ y }) => {
   const variants = {
     hidden: {
-      y: "200%",
-      x: "-5%",
-      rotate: "6deg",
+      y: "10vh",
+      x: "-1%",
+      rotate: "-1deg",
       scale: "0.9",
       opacity: 0,
     },
     visible: {
       opacity: 1,
-      y: "0%",
+      y: "0vh",
       x: 0,
       rotate: "0deg",
       scale: "1",
@@ -24,25 +23,29 @@ export const Title = () => {
 
   // for triggering reveal animations when entering the viewport by 10%
   const isInView = useInView(ref, {
-    margin: "-20% 0%",
+    margin: "-5% 0%",
   });
 
   return (
-    <motion.h2
+    <motion.div
       ref={ref}
       variants={variants}
       initial="hidden"
       animate={isInView && "visible"}
       transition={{
         type: "spring",
-        damping: 10,
-        delay: 0.25,
+        damping: 8,
+        delay: 0.1,
         mass: 0.3,
-        stiffness: 180,
+        stiffness: 60,
       }}
-      className="text-5xl font-bold sm:pl-10 max-xl:text-center text-neutral"
     >
-      Popular
-    </motion.h2>
+      <motion.h2
+        style={{ y }}
+        className="text-center text-4xl xl:text-5xl 2xl:text-6xl font-black text-base-100"
+      >
+        Categories
+      </motion.h2>
+    </motion.div>
   );
 };

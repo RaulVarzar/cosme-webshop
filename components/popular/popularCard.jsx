@@ -74,7 +74,7 @@ const Card = ({
 
   // for triggering reveal animations when entering the viewport by 10%
   const isInView = useInView(ref, {
-    margin: "-10% 0%",
+    margin: "-30% 0%",
   });
 
   const controls = useAnimationControls();
@@ -126,12 +126,12 @@ const Card = ({
           mass: 0.4,
           stiffness: 40,
         }}
-        className="flex flex-col w-full h-full p-4 gap-2.5 sm:p-6 md:p-8 lg:p-10 xl:p-12 rounded-xl"
+        className="flex flex-col w-full h-full p-4 gap-2.5 z-40 sm:p-6 md:p-8 lg:p-10 xl:p-12 rounded-xl"
       >
         <motion.div
           animate={controls}
           transition={{ duration: 0.28, ease: "easeOut" }}
-          className="relative w-full overflow-hidden grow aspect-4/5 rounded-xl "
+          className="relative w-full overflow-hidden grow aspect-4/5 rounded-xl z-40"
         >
           <motion.img
             animate={imageControls}
@@ -202,7 +202,7 @@ const Card = ({
         <motion.span
           layoutId="cards"
           transition={{ duration: 0.2 }}
-          className="absolute inset-0 bg-opacity-60 bg-base-200 rounded-xl -z-30"
+          className="absolute inset-0 bg-opacity-60 bg-base-200 rounded-xl -z-10"
         ></motion.span>
       )}
     </motion.div>
@@ -210,3 +210,5 @@ const Card = ({
 };
 
 export default Card;
+
+//TO DO : make box disappear when hover ends

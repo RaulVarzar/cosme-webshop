@@ -1,5 +1,5 @@
 import { Newsletter } from "@/components/newsletter/newsletter";
-import Carousel from "../components/carousel";
+import Carousel from "../components/carousel/carousel";
 import Footer from "../components/footer";
 import Hero from "../components/hero";
 import Navbar from "../components/navbar/navbar";
@@ -10,15 +10,17 @@ import ScrollContext from "@/components/ScrollContext";
 export default function Home() {
   return (
     <ScrollContext>
+      <Navbar />
       <div className="grid items-center min-h-screen justify-items-center">
-        <Navbar />
-        <main className="relative w-full max-w-8xl">
+        <div className=" w-full grid items-center justify-items-center">
           <Hero />
-        </main>
-        <Carousel />
-        <Popular />
-        <Collections />
-        <Newsletter />
+          <Carousel />
+          <div className="bg-base-100 w-full z-10">
+            <Popular />
+            <Collections />
+            <Newsletter />
+          </div>
+        </div>
         <Footer />
       </div>
     </ScrollContext>

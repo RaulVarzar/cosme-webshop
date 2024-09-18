@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Card from "./popularCard";
 
-const Carousel = ({ data }) => {
+const Grid = ({ data }) => {
   const [hovering, setHovering] = useState(null);
 
   return (
@@ -25,4 +25,4 @@ const Carousel = ({ data }) => {
   );
 };
 
-export default Carousel;
+export default Grid;
