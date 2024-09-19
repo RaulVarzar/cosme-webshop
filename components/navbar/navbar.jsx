@@ -45,12 +45,12 @@ const Navbar = () => {
   return (
     <motion.nav
       layout
-      className={`w-full h-auto top-0 inset-x-0 fixed mx-auto  flex flex-col gap-y-8  bg-white rounded-b-xl px-4  z-50 
-         ${hidden ? "max-w-6xl py-6 shadow-md" : "py-6 max-w-8xl"} `}
+      className={`w-full h-auto top-0 inset-x-0 fixed mx-auto flex flex-col overflow-hidden  bg-base-100 rounded-b-xl z-50 
+         ${hidden ? "max-w-6xl shadow" : " max-w-8xl"} `}
     >
       <motion.div
         layout="position"
-        className={`flex justify-center w-full items-center mx-auto `}
+        className={`flex justify-center w-full items-center mx-auto px-4 py-3 sm:py-4 md:py-6 bg-base-100 `}
       >
         <motion.div
           layout
@@ -93,10 +93,12 @@ const Navbar = () => {
           >
             <FaRegUser />
           </Link>
-          <MdShoppingBasket
-            onClick={() => setIsOpen(!openSubmenu)}
-            className="text-4xl transition-opacity text-neutral hover:cursor-pointer opacity-80 hover:opacity-100"
-          />
+          <motion.div whileTap={{ scale: 0.9 }}>
+            <MdShoppingBasket
+              onClick={() => setIsOpen(!openSubmenu)}
+              className="text-4xl transition-opacity text-neutral hover:cursor-pointer opacity-80 hover:opacity-100"
+            />
+          </motion.div>
         </motion.div>
       </motion.div>
       {openSubmenu && <Submenu openSubmenu={openSubmenu} />}

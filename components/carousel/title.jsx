@@ -1,7 +1,9 @@
-import { useInView, motion } from "framer-motion";
+import { useInView, motion, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-export const Title = ({ y }) => {
+export const Title = ({ scrollYProgress }) => {
+  const y = useTransform(scrollYProgress, [0, 0.6], ["35vh", "0vh"]);
+
   const variants = {
     hidden: {
       y: "10vh",

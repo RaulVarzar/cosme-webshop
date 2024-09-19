@@ -18,15 +18,15 @@ const Carousel = () => {
     offset: ["start", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], ["80%", "100%"]);
-  const titleY = useTransform(scrollYProgress, [0, 0.7], ["25vh", "0vh"]);
-  const contentY = useTransform(scrollYProgress, [0.2, 0.7], ["25vh", "0vh"]);
+  const scale = useTransform(scrollYProgress, [0, 1], ["95%", "100%"]);
+  const contentY = useTransform(scrollYProgress, [0.2, 0.6], ["15vh", "0vh"]);
 
   const borderRadius = useTransform(
     scrollYProgress,
     [0, 0.6, 1],
-    ["10vh", "10vh", "0vh"]
+    ["5vw", "5vw", "0vw"]
   );
+  console.log(borderRadius);
 
   const y = useTransform(totalScrollProgress, [0, 1], ["0vh", "30vh"]);
 
@@ -36,13 +36,13 @@ const Carousel = () => {
     <motion.div
       ref={ref}
       style={{ borderRadius, scale }}
-      className="relative w-full bg-primary py-20 min-h-screen"
+      className="relative w-full bg-secondary py-20 min-h-screen"
     >
       <motion.div
         style={{ y }}
         className="flex flex-col gap-4 md:gap-8 py-16 justify-center items-center w-fit mx-auto"
       >
-        <Title y={titleY} />
+        <Title scrollYProgress={scrollYProgress} />
 
         <motion.div
           style={{ y: contentY }}

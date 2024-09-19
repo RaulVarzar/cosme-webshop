@@ -10,24 +10,22 @@ import {
 const Card = forwardRef(function (props, ref) {
   const [hovering, setHovering] = useState(false);
 
-  // const variants = {
-  //   hovering: {
-  //     scale: 1.02,
-  //     y: "-10px",
-  //     transition: { delay: 0.5, duration: 0.12, type: "tween" },
-  //   },
-  //   visible: {
-  //     opacity: 1,
-  //     y: "0px",
-  //     transition: {
-  //       type: "spring",
-  //       damping: 5,
-  //       mass: 0.2,
-  //       stiffness: 120,
-  //       delay: 0.35,
-  //     },
-  //   },
-  // };
+  const variants = {
+    hidden: {
+      y: "10vh",
+      x: "-1%",
+      rotate: "-1deg",
+      scale: "0.9",
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      y: "0vh",
+      x: 0,
+      rotate: "0deg",
+      scale: "1",
+    },
+  };
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -61,6 +59,7 @@ const Card = forwardRef(function (props, ref) {
     <motion.div
       onHoverStart={() => setHovering(true)}
       onHoverEnd={() => setHovering(false)}
+      whileTap={{ scale: 0.96 }}
       animate={controls}
       className=" cursor-pointer relative w-full max-sm:max-w-sm max-w-xl h-full group rounded-3xl aspect-video"
     >
@@ -70,11 +69,11 @@ const Card = forwardRef(function (props, ref) {
           animate={imgControls}
           transition={{ duration: 0.4 }}
           src={`/categories/${props.photo}`}
-          className="object-cover h-full group-hover:aspect-square group-hover:scale-[1.03] w-full relative rounded-[12px] "
+          className="object-cover h-full group-hover:blur-[2px] group-hover:aspect-square group-hover:scale-[1.03] w-full relative rounded-[12px] "
           alt=""
         />
       </div>
-      <div className="absolute capitalize bottom-5 left-5 rounded-full bg-base-100 px-8 py-3 text-xl font-medium group-hover:text-2xl transition-all">
+      <div className="absolute capitalize bottom-3 left-3 rounded-2xl border-4 group-hover:bg-base-100 text-base-100 group-hover:text-base-content border-base-100 px-8 py-3 text-xl font-medium  duration-300 transition-all">
         {props.title}
       </div>
     </motion.div>

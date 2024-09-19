@@ -25,18 +25,19 @@ export const Category = ({ title, categories, open }) => {
   };
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-1.5 md:gap-3">
       <motion.h2
         variants={titleVariants}
         initial="hidden"
+        whileTap={{ scale: 0.9 }}
         animate={open ? "visible" : "hidden"}
         exit="hidden"
         key={open}
-        className="text-2xl font-bold uppercase cursor-pointer opacity-80 hover:opacity-100 hover:underline underline-offset-2 text-base-content"
+        className="text-xl md:text-2xl font-bold uppercase cursor-pointer opacity-80 hover:opacity-100 hover:underline underline-offset-2 text-base-content"
       >
         {title}
       </motion.h2>
-      <motion.ul className="flex flex-col gap-2.5 ml-3 text-xl font-medium text-neutral-content">
+      <motion.ul className="flex flex-col gap-1 md:gap-2.5 ml-3 text-xl font-medium text-neutral-content">
         {categories.map((item, i) => {
           const variants = {
             notHovering: {
@@ -78,10 +79,11 @@ export const Category = ({ title, categories, open }) => {
             >
               <motion.span
                 animate={hovering === item ? "hovering" : "notHovering"}
-                className={`block  ${
+                className={`block text-sm md:text-md lg:text-lg ${
                   hovering === item ? " text-accent" : "text-base-content"
                 }`}
                 variants={variants}
+                whileTap={{ scale: 0.9 }}
               >
                 {item}
               </motion.span>

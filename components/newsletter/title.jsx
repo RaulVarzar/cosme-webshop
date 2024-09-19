@@ -6,7 +6,7 @@ export const Title = () => {
   const variants = {
     hidden: {
       y: "80%",
-      rotate: "5deg",
+      rotate: "3deg",
       scale: "0.85",
       opacity: 0,
     },
@@ -25,24 +25,19 @@ export const Title = () => {
     margin: "-10% 0%",
   });
 
-  // for hiding the element after leaving the viewport
-  const leftView = useInView(ref, {
-    margin: "5% 0%",
-  });
-
   return (
     <motion.h2
       ref={ref}
       variants={variants}
       initial="hidden"
-      animate={isInView ? "visible" : !leftView && "hidden"}
+      animate={isInView && "visible"}
       transition={{
         type: "spring",
         duration: 0.15,
         damping: 8,
         delay: 0.25,
         mass: 0.4,
-        stiffness: 120,
+        stiffness: 100,
       }}
       className="font-bold text-xl md:text-2xl lg:text-4xl text-neutral"
     >

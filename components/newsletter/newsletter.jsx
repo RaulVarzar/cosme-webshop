@@ -1,15 +1,14 @@
+import { Subtitle } from "./subtitle";
 import { Title } from "./title";
 
 export const Newsletter = () => {
   return (
-    <div className="flex flex-col sm:flex-row w-full mx-auto justify-around items-center max-w-7xl gap-y-8 gap-x-12 py-10 md:py-12 lg:py-16 xl:py-20 border-t-1 mt-2 md:mt-4 lg:mt-8 xl:mt-12">
-      <div className="flex flex-col gap-1 sm:gap-2.5 md:gap-4 lg:gap-6 w-full text-center text-balance sm:max-w-sm max-sm:px-8">
+    <div className="flex flex-col sm:flex-row w-full mx-auto justify-center items-center max-w-7xl gap-y-8 gap-x-12 py-10 md:py-12 lg:py-16 xl:py-20 border-t-1 mt-2 md:mt-4 lg:mt-8 xl:mt-12">
+      <div className="flex flex-col  w-full text-center text-balance sm:max-w-sm max-sm:px-8">
         <Title />
-        <p className="font-medium">
-          Subscribe to our newsletter and get the latest updates and promotions
-        </p>
+        <Subtitle />
       </div>
-      <div className="flex flex-col md:flex-row gap-3 grow w-full justify-center">
+      <div className="flex flex-col md:flex-row gap-3 max-sm:max-w-80 max-sm:px-3 md:min-w-96 justify-start">
         <label className="input input-bordered flex items-center gap-2 w-full max-w-md max-sm:mx-auto">
           <svg
             xmlns="http://www.w3.org/2000/svg"

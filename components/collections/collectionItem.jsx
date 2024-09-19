@@ -1,10 +1,16 @@
 "use client";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import {
+  AnimatePresence,
+  motion,
+  useInView,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+import { useRef, useState } from "react";
 
 export const Collection = ({ data }) => {
   const ref = useRef(null);
-
+  const [hovering, setHovering] = useState(false);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -26,6 +32,14 @@ export const Collection = ({ data }) => {
       opacity: 1,
       x: "0%",
       scale: "1",
+      transition: {
+        type: "spring",
+        duration: 0.5,
+        damping: 12,
+        delay: 0.2,
+        mass: 0.2,
+        stiffness: 90,
+      },
     },
   };
 
@@ -33,47 +47,58 @@ export const Collection = ({ data }) => {
   const isInView = useInView(ref, {
     margin: "-25% 0%",
   });
-
-  // for hiding the element after leaving the viewport
-  const leftView = useInView(ref, {
-    margin: "5% 0%",
-  });
-
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 0.6, 1],
+    ["96%", "100%", "94%"]
+  );
   return (
     <motion.div
-      style={{ y }}
+      style={{ y, scale }}
       ref={ref}
-      className={`flex sm:max-md:flex-row flex-col lg:flex-row justify-center gap-6 items-center w-full md:w-1/2 hover:bg-base-200/80 rounded-xl py-8 cursor-pointer group ${
+      className={` w-full md:w-1/2  justify-center flex  ${
         data.id === 2 && "md:mt-60"
       }`}
+      whileTap={{ scale: 0.96, translateY: "5px" }}
     >
-      <div>
+      <motion.div
+        onHoverStart={() => setHovering(true)}
+        onHoverEnd={() => setHovering(false)}
+        className="w-full md:w-fit px-8 rounded-2xl  cursor-pointer relative flex overflow-hidden md:flex-row py-8 flex-col lg:flex-row justify-center gap-6 items-center"
+      >
+        <AnimatePresence>
+          {hovering && (
+            <motion.div
+              initial={{ y: "100%" }}
+              animate={{ y: "0" }}
+              transition={{ duration: 0.2, delay: 0 }}
+              exit={{ y: "100%" }}
+              className="inset-0 absolute bg-base-200  h-full w-full -z-10"
+            ></motion.div>
+          )}
+        </AnimatePresence>
         <img
           src={`collections/${data.photo}`}
           alt=""
-          className="z-50 ma-w-48 max-h-48 rounded-xl sm:max-w-60 max-w-fit sm:max-h-60 md:max-w-80 md:max-h-80 xl:max-w-96 xl:max-h-96 object-f"
+          className="z-20  rounded-2xl  md:max-w-60 lg:max-w-80 xl:max-w-96 "
         />
-      </div>
-      <motion.div
-        variants={variants}
-        initial="hidden"
-        animate={isInView ? "visible" : !leftView && "hidden"}
-        transition={{
-          type: "spring",
-          duration: 0.5,
-          damping: 12,
-          delay: 0.2,
-          mass: 0.2,
-          stiffness: 90,
-        }}
-        className="flex flex-col items-start -z-20 group-hover:z-20"
-      >
-        <span className="text-sm font-medium sm:text-md md:text-lg lg:text-xl opacity-40 group-hover:opacity-75">
-          Collection
-        </span>
-        <h2 className="font-semibold text-md sm:text-xl text-base-content md:text-2xl lg:text-3xl opacity-80 group-hover:opacity-100">
-          {data.title}
-        </h2>
+
+        <motion.div
+          variants={variants}
+          animate={isInView ? "visible" : "hidden"}
+          className="flex flex-col items-center sm:items-start justify-start z-10 "
+        >
+          <motion.span className="text-md font-medium sm:text-md md:text-lg lg:text-xl opacity-40 ">
+            Collection
+          </motion.span>
+          <motion.h2
+            style={hovering ? { opacity: 1 } : { opacity: 0.8 }}
+            className={`font-semibold text-base-content sm:text-xl text-xl md:text-2xl lg:text-3xl
+            `}
+          >
+            {data.title}
+          </motion.h2>
+        </motion.div>
       </motion.div>
     </motion.div>
   );

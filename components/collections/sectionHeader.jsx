@@ -1,8 +1,15 @@
 "use client";
-import { easeOut, motion } from "framer-motion";
+import {
+  easeOut,
+  motion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import Link from "next/link";
 import { Title } from "./title";
 import { Description } from "./description";
+import { useRef } from "react";
 
 const linkVariants = {
   hidden: { opacity: 0, y: "80%" },
@@ -10,8 +17,31 @@ const linkVariants = {
 };
 
 export const Header = () => {
+  const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "start 0"],
+  });
+
+  const y = useTransform(
+    scrollYProgress,
+    [0, 0.4, 0.7, 1],
+    ["8vh", "0vh", "0vh", "-5vh"]
+  );
+
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 0.4, 1],
+    ["93%", "100%", "96%"]
+  );
+
   return (
-    <div className="flex flex-col justify-center gap-6 py-8 pl-6 text-center md:pr-12 md:w-5/12 md:text-left text-balance">
+    <motion.div
+      ref={ref}
+      style={{ y, scale }}
+      className="flex flex-col justify-center w-full gap-6 py-8 md:pl-2 lg:pl-6 text-center md:pr-12 md:w-5/12 md:text-left text-balance"
+    >
       <Title />
       <Description />
       <motion.div
@@ -30,6 +60,6 @@ export const Header = () => {
           </span>
         </Link>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };

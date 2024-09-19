@@ -67,6 +67,14 @@ const Card = ({
       y: 0,
       scale: "1",
       rotate: 0,
+      transition: {
+        type: "spring",
+        duration: 0.2,
+        damping: 14,
+        delay: 1 + id * 0.2,
+        mass: 0.3,
+        stiffness: 40,
+      },
     },
   };
 
@@ -112,7 +120,8 @@ const Card = ({
       ref={ref}
       onHoverStart={() => toggleHovering(id)}
       key={id}
-      className="relative w-full max-w-sm mx-auto cursor-pointer"
+      whileTap={{ scale: 0.96, translateY: "5px" }}
+      className="relative w-full max-w-sm mx-auto cursor-pointer "
     >
       <motion.div
         variants={cardVariants}
@@ -138,13 +147,12 @@ const Card = ({
             transition={{ duration: 0.2, ease: "easeInOut" }}
             alt="placeholder"
             src={photo}
-            className="rounded-xl"
           />
         </motion.div>
         <motion.div
           animate={blurVariants}
           transition={{ duration: 0.32, ease: "easeOut" }}
-          className="flex flex-row items-end justify-between px-1"
+          className="flex flex-row items-end justify-between px-1 overflow-hidden"
         >
           <div className="flex flex-col items-start justify-start overflow-hidden ">
             <motion.span
@@ -180,18 +188,11 @@ const Card = ({
               {name}
             </motion.p>
           </div>
+
           <motion.span
             variants={priceVariants}
             initial="hidden"
             animate={isInView && "visible"}
-            transition={{
-              type: "spring",
-              duration: 0.2,
-              damping: 14,
-              delay: 1 + id * 0.2,
-              mass: 0.3,
-              stiffness: 40,
-            }}
             className="text-lg font-semibold text-accent"
           >
             ${price}

@@ -40,7 +40,7 @@ const Popular = () => {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "start 0.4"],
+    offset: ["start end", "start 0"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["15vh", "0vh"]);
