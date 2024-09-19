@@ -26,7 +26,6 @@ const Carousel = () => {
     [0, 0.6, 1],
     ["5vw", "5vw", "0vw"]
   );
-  console.log(borderRadius);
 
   const y = useTransform(totalScrollProgress, [0, 1], ["0vh", "30vh"]);
 
@@ -36,19 +35,19 @@ const Carousel = () => {
     <motion.div
       ref={ref}
       style={{ borderRadius, scale }}
-      className="relative w-full bg-secondary py-20 min-h-screen"
+      className="relative w-full min-h-screen py-20 bg-secondary"
     >
       <motion.div
         style={{ y }}
-        className="flex flex-col gap-4 md:gap-8 py-16 justify-center items-center w-fit mx-auto"
+        className="flex flex-col items-center justify-center gap-4 py-16 mx-auto md:gap-8 w-fit"
       >
         <Title scrollYProgress={scrollYProgress} />
 
         <motion.div
           style={{ y: contentY }}
-          className="flex items-center px-2 md:px-4 lg:px-6 py-12 max-w-8xl  mx-auto justify-center z-10 w-full "
+          className="z-10 flex items-center justify-center w-full px-2 py-12 mx-auto md:px-4 lg:px-6 max-w-8xl "
         >
-          <div className="grid grid-cols-1 pb-12 md:grid-cols-2 place-items-center sm:max-md:gap-y-6 items-center justify-center gap-3 md:gap-4 lg:gap-6 xl:gap-10 h-full ">
+          <div className="grid items-center justify-center h-full grid-cols-1 gap-3 pb-12 md:grid-cols-2 place-items-center sm:max-md:gap-y-6 md:gap-4 lg:gap-6 xl:gap-10 ">
             <Card ref={bottomRef} photo="eyes.jpeg" title="Eyes" />
             <Card ref={bottomRef} photo="lips.jpg" title="Lips" />
             <Card ref={bottomRef} photo="skin.jpg" title="skin" />
@@ -57,7 +56,7 @@ const Carousel = () => {
         </motion.div>
       </motion.div>
 
-      <div ref={bottomRef} className=" h-0 " />
+      <div ref={bottomRef} className="h-0 " />
     </motion.div>
   );
 };

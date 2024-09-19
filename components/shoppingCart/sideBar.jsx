@@ -32,7 +32,7 @@ export const Cart = ({ isOpen, toggle }) => {
         initial="hidden"
         variants={variants}
         animate={isOpen ? "visible" : "hidden"}
-        className="fixed top-[2vh] right-0 h-[96vh] rounded-lg z-50 bg-base-100 w-96 flex  flex-col items-center justify-center text-base-content text-3xl font-black overflow-hidden"
+        className="fixed top-[2vh] right-0 h-[96svh] max-w-[90vw] mx-auto rounded-lg z-50 bg-base-100 w-fit px-12 flex  flex-col items-center justify-center text-base-content text-3xl font-black overflow-hidden"
       >
         <motion.h1
           initial={{ opacity: 0, x: 100 }}

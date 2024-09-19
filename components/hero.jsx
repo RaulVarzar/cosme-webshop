@@ -49,8 +49,8 @@ export default function Hero() {
     offset: ["start end", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], ["100%", "95%"]);
-  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "-10vh"]);
+  const scale = useTransform(scrollYProgress, [0, 1], ["100%", "80%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "-8vh"]);
   const opacity = useTransform(scrollYProgress, [0.99, 1], ["100%", "0%"]);
 
   return (
@@ -76,7 +76,7 @@ export default function Hero() {
           </div>
         </div>
       </motion.div>
-      <div ref={ref} className=" h-0 "></div>
+      <div ref={ref} className="h-0 "></div>
     </>
   );
 }

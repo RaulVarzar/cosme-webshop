@@ -1,6 +1,12 @@
 "use client";
 import Image from "next/image";
-import { motion, useAnimationControls, useInView } from "framer-motion";
+import {
+  motion,
+  useAnimationControls,
+  useInView,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { useEffect, useRef } from "react";
 
 const Card = ({
@@ -115,17 +121,35 @@ const Card = ({
     }
   }, [hovering]);
 
+  // scale animations for entering and leaving the screen
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(
+    scrollYProgress,
+    [0, 0.5, 0.8, 1],
+    ["5vh", "0vh", "0vh", "-5vh"]
+  );
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 0.6, 1],
+    ["90%", "100%", "100%"]
+  );
+
   return (
     <motion.div
       ref={ref}
       onHoverStart={() => toggleHovering(id)}
       key={id}
-      whileTap={{ scale: 0.96, translateY: "5px" }}
+      // whileTap={{ scale: 0.96, translateY: "5px" }}
+
       className="relative w-full max-w-sm mx-auto cursor-pointer "
     >
       <motion.div
         variants={cardVariants}
         initial="hidden"
+        // style={{ scale, y }}
         animate={isInView && "visible"}
         transition={{
           type: "spring",
@@ -140,7 +164,7 @@ const Card = ({
         <motion.div
           animate={controls}
           transition={{ duration: 0.28, ease: "easeOut" }}
-          className="relative w-full overflow-hidden grow aspect-4/5 rounded-xl z-40"
+          className="relative z-40 w-full overflow-hidden grow aspect-4/5 rounded-xl"
         >
           <motion.img
             animate={imageControls}
@@ -203,7 +227,7 @@ const Card = ({
         <motion.span
           layoutId="cards"
           transition={{ duration: 0.2 }}
-          className="absolute inset-0 bg-opacity-60 bg-base-200 rounded-xl -z-10"
+          className="absolute inset-0 bg-opacity-90 bg-base-200 rounded-xl -z-10"
         ></motion.span>
       )}
     </motion.div>

@@ -49,7 +49,7 @@ const Popular = () => {
     <motion.div
       ref={ref}
       style={{ y }}
-      className="flex mx-auto flex-col w-full gap-8 py-12 text-5xl md:gap-12 xl:gap-24 lg:pt-32 xl:pt-40 max-w-8xl h-fit "
+      className="flex flex-col w-full gap-8 py-12 mx-auto text-5xl md:gap-12 xl:gap-20 lg:pt-25 xl:pt-32 max-w-8xl h-fit "
     >
       <Title />
       <Grid data={POPULAR} />

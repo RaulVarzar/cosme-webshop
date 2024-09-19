@@ -47,24 +47,20 @@ export const Collection = ({ data }) => {
   const isInView = useInView(ref, {
     margin: "-25% 0%",
   });
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.6, 1],
-    ["96%", "100%", "94%"]
-  );
+  const scale = useTransform(scrollYProgress, [0, 1], ["96%", "100%"]);
   return (
     <motion.div
       style={{ y, scale }}
       ref={ref}
-      className={` w-full md:w-1/2  justify-center flex  ${
+      className={` w-full md:w-1/2  justify-center flex ${
         data.id === 2 && "md:mt-60"
       }`}
-      whileTap={{ scale: 0.96, translateY: "5px" }}
     >
       <motion.div
         onHoverStart={() => setHovering(true)}
         onHoverEnd={() => setHovering(false)}
-        className="w-full md:w-fit px-8 rounded-2xl  cursor-pointer relative flex overflow-hidden md:flex-row py-8 flex-col lg:flex-row justify-center gap-6 items-center"
+        whileTap={{ scale: 0.96, translateY: "5px" }}
+        className="relative flex flex-col items-center justify-center w-full gap-6 px-8 py-3 overflow-hidden cursor-pointer sm:py-6 md:py-8 md:w-fit rounded-2xl md:flex-row lg:flex-row"
       >
         <AnimatePresence>
           {hovering && (
@@ -73,22 +69,22 @@ export const Collection = ({ data }) => {
               animate={{ y: "0" }}
               transition={{ duration: 0.2, delay: 0 }}
               exit={{ y: "100%" }}
-              className="inset-0 absolute bg-base-200  h-full w-full -z-10"
+              className="absolute inset-0 w-full h-full bg-base-200 -z-10"
             ></motion.div>
           )}
         </AnimatePresence>
         <img
           src={`collections/${data.photo}`}
-          alt=""
-          className="z-20  rounded-2xl  md:max-w-60 lg:max-w-80 xl:max-w-96 "
+          alt={data.photo}
+          className="z-20 rounded-2xl md:max-w-60 lg:max-w-80 xl:max-w-96 "
         />
 
         <motion.div
           variants={variants}
           animate={isInView ? "visible" : "hidden"}
-          className="flex flex-col items-center sm:items-start justify-start z-10 "
+          className="z-10 flex flex-col items-center justify-start sm:items-start "
         >
-          <motion.span className="text-md font-medium sm:text-md md:text-lg lg:text-xl opacity-40 ">
+          <motion.span className="font-medium text-md sm:text-md md:text-lg lg:text-xl opacity-40 ">
             Collection
           </motion.span>
           <motion.h2

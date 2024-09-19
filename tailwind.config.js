@@ -27,7 +27,7 @@ module.exports = {
         emerald: {
           ...require("daisyui/src/theming/themes")["emerald"],
           "base-content": "#6c7485",
-          "base-200": "#f6f6f6",
+          "base-200": "#f8f8f8",
           accent: "#d49566",
           primary: "#f2e0f6",
           secondary: "#f5e7f9",

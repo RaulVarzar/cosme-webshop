@@ -43,10 +43,10 @@ export const Description = () => {
         stiffness: 50,
         staggerChildren: 0.2,
       }}
-      className="flex flex-col justify-center text-sm font-medium opacity-50 sm:justify-left sm:text-md xl:text-lg text-base-content"
+      className="flex flex-col justify-center text-xs font-medium opacity-50 sm:text-sm sm:justify-left sm:text-md xl:text-lg text-base-content"
     >
       <motion.span variants={childrenVariants}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.{" "}
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
       </motion.span>
       <motion.span variants={childrenVariants}>
         Commodi, expedita, optio at rerum sunt accusantium,

@@ -61,7 +61,7 @@ const Card = forwardRef(function (props, ref) {
       onHoverEnd={() => setHovering(false)}
       whileTap={{ scale: 0.96 }}
       animate={controls}
-      className=" cursor-pointer relative w-full max-sm:max-w-sm max-w-xl h-full group rounded-3xl aspect-video"
+      className="relative w-full h-full max-w-xl cursor-pointer max-sm:max-w-sm group rounded-3xl aspect-video"
     >
       <div className="absolute inset-0  group-hover:scale-x-[1.023] group-hover:scale-y-[1.03]  bg-base-100 rounded-[15px] transition-all duration-200" />
       <div className="overflow-hidden rounded-[11px] inset-0 w-full h-full">
@@ -73,7 +73,7 @@ const Card = forwardRef(function (props, ref) {
           alt=""
         />
       </div>
-      <div className="absolute capitalize bottom-3 left-3 rounded-2xl border-4 group-hover:bg-base-100 text-base-100 group-hover:text-base-content border-base-100 px-8 py-3 text-xl font-medium  duration-300 transition-all">
+      <div className="absolute px-5 py-1.5 text-xl font-medium capitalize transition-all duration-300  border-2 md:border-4 md:py-3 bottom-3 left-3 rounded-xl md:rounded-2xl group-hover:bg-base-100 text-base-100 group-hover:text-base-content border-base-100 md:px-8">
         {props.title}
       </div>
     </motion.div>
