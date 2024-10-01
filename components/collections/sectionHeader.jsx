@@ -21,26 +21,18 @@ export const Header = () => {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "start 0"],
+    offset: ["start end", "start"],
   });
 
-  const y = useTransform(
-    scrollYProgress,
-    [0, 0.4, 0.7, 1],
-    ["8vh", "0vh", "0vh", "-5vh"]
-  );
+  const y = useTransform(scrollYProgress, [0, 1], ["20vh", "0vh"]);
 
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.4, 1],
-    ["93%", "100%", "96%"]
-  );
+  const scale = useTransform(scrollYProgress, [0, 1], ["90%", "100%"]);
 
   return (
     <motion.div
       ref={ref}
       style={{ y, scale }}
-      className="flex flex-col justify-center w-full gap-6 py-8 md:pl-2 lg:pl-6 text-center md:pr-12 md:w-5/12 md:text-left text-balance"
+      className="flex flex-col  justify-center w-full mx-auto sm:min-h-[70vh] gap-6 py-8 md:pl-2 lg:pl-6 text-center md:pr-6  md:text-right text-balance"
     >
       <Title />
       <Description />

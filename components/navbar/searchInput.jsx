@@ -35,7 +35,6 @@ export const SearchInput = () => {
         <input
           type="text"
           placeholder="search products..."
-          autoFocus
           className="px-2 py-1.5 text-lg bg-transparent text-center border-b-2 md:min-w-96 max-sm:w-full md:text-xl xl:text-2xl focus:outline-none"
         />
       </label>

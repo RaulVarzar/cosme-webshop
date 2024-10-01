@@ -46,13 +46,16 @@ const Navbar = () => {
     <>
       <motion.nav
         layout
-        className={`w-full h-auto top-0 inset-x-0 fixed mx-auto flex flex-col overflow-hidden bg-base-100 rounded-b-xl z-40 
-         ${hidden ? "max-w-6xl shadow " : " max-w-8xl"} `}
+        style={{ borderRadius: "44px" }}
+        className={`w-full h-auto inset-x-0 max-sm:rounded-none fixed mx-auto flex flex-col overflow-hidden bg-base-100 z-40 
+         ${hidden ? "max-w-6xl shadow top-4" : " max-w-8xl top-0 "} ${
+          openSubmenu && "shadow"
+        }`}
       >
         <motion.div
           layout
           className={`flex justify-center w-full items-center mx-auto px-3 md:px-4 lg:px-6 py-3 sm:py-4 md:py-6  ${
-            !hidden && openSubmenu ? "bg-base-200" : "bg-base-100"
+            !hidden && openSubmenu ? "bg-base-100" : "bg-base-100"
           } `}
         >
           <motion.div
@@ -64,8 +67,12 @@ const Navbar = () => {
               openSubmenu={openSubmenu}
             />
           </motion.div>
-          <motion.div layout className="inline-block w-full align-top">
+          <motion.div
+            layout="position"
+            className="inline-block w-full align-top"
+          >
             <motion.h1
+              layout="position"
               className={`font-bold tracking-wide text-neutral sm:text-center h-fit leading-none ${
                 hidden ? "text-2xl sm:text-3xl" : "sm:text-5xl text-3xl"
               }`}

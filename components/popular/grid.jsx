@@ -9,7 +9,7 @@ const Grid = ({ data }) => {
   return (
     <motion.div
       onHoverEnd={() => setHovering(false)}
-      className="grid items-stretch h-full grid-cols-1 gap-8 mx-auto overflow-hidden w-fit justify-items-stretch sm:grid-cols-2 xl:grid-cols-4 xl:px-3"
+      className="grid items-stretch h-full grid-cols-1 gap-8 mx-auto  w-fit justify-items-stretch sm:grid-cols-2 xl:grid-cols-4 xl:px-3"
     >
       {data.map((item, i) => {
         return (

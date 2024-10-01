@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import {
+  AnimatePresence,
   motion,
   useAnimationControls,
   useInView,
@@ -144,7 +145,7 @@ const Card = ({
       key={id}
       // whileTap={{ scale: 0.96, translateY: "5px" }}
 
-      className="relative w-full max-w-sm mx-auto cursor-pointer "
+      className="relative w-full max-w-sm mx-auto cursor-pointer"
     >
       <motion.div
         variants={cardVariants}
@@ -223,13 +224,26 @@ const Card = ({
           </motion.span>
         </motion.div>
       </motion.div>
-      {hovering === id && (
-        <motion.span
-          layoutId="cards"
-          transition={{ duration: 0.2 }}
-          className="absolute inset-0 bg-opacity-90 bg-base-200 rounded-xl -z-10"
-        ></motion.span>
-      )}
+      <AnimatePresence>
+        {hovering === id && (
+          <motion.span
+            layoutId="cards"
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            initial={{ scale: 1.05, opacity: 0 }}
+            animate={{
+              scale: 1,
+              opacity: 1,
+              transition: { duration: 0.25, ease: "easeInOut" },
+            }}
+            exit={{
+              scale: 1.08,
+              opacity: 0,
+              transition: { duration: 0.15, ease: "easeInOut" },
+            }}
+            className="absolute inset-0 bg-opacity-90  bg-base-200 rounded-xl -z-10"
+          ></motion.span>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };

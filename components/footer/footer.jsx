@@ -12,8 +12,8 @@ export default function Footer() {
     offset: ["start end", "end"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["8vh", "0vh"]);
-  const scale = useTransform(scrollYProgress, [0, 1], ["90%", "100%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["3vh", "0vh"]);
+  const scale = useTransform(scrollYProgress, [0, 1], ["93%", "100%"]);
 
   return (
     <footer ref={ref} className="z-10 w-full px-3 py-12 bg-base-200 ">

@@ -1,7 +1,7 @@
 import { Newsletter } from "@/components/newsletter/newsletter";
 import Carousel from "../components/carousel/carousel";
 import Footer from "../components/footer/footer";
-import Hero from "../components/hero";
+import Hero from "../components/heroSection/hero";
 import Navbar from "../components/navbar/navbar";
 import Popular from "../components/popular/popular";
 import { Collections } from "@/components/collections/collectionsSection";

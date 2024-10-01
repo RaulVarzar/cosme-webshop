@@ -4,7 +4,7 @@ import { SearchInput } from "./searchInput";
 
 export const Submenu = ({ openSubmenu }) => {
   return (
-    <motion.div className="flex flex-col w-full gap-4 px-4 py-8 lg:gap-8 md:gap-6 sm:px-6 md:px-8 -z-10 bg-base-200 ">
+    <motion.div className="flex flex-col w-full gap-4 px-4 py-8 lg:gap-8 md:gap-6 sm:px-6 md:px-8 -z-10  ">
       <div className="flex flex-row justify-center w-full gap-2">
         <SearchInput />
       </div>
