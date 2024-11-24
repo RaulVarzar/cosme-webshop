@@ -60,21 +60,21 @@ export default function Hero() {
         className="flex flex-col -z-0 sticky items-center justify-center pt-[10vh] pb-[5vh] top-[0vh]  w-full  min-h-[100vh] h-full  mx-auto "
       >
         <div className="flex flex-col gap-4 w-full  max-w-8xl  h-full max-h-[90vh]">
-          <div className="flex  flex-col items-center justify-center w-full grow sm:flex-row">
+          <div className="flex flex-col items-center justify-center w-full grow sm:flex-row">
             <FeaturedProduct data={DATA} selectedCategory={selectedCategory} />
           </div>
 
           <div className="flex flex-row gap-8">
-            <div className=" flex flex-col gap-2  items-start justify-start ">
-              <motion.h2 className="text-xl font-bold uppercase tracking-wider md:text-xl lg:text-2xl xl:text-4xl 2xl:text-5xl text-neutral">
+            <div className="flex flex-col items-start justify-start gap-2 ">
+              <motion.h2 className="text-xl font-bold tracking-wider uppercase md:text-xl lg:text-2xl xl:text-4xl 2xl:text-5xl text-neutral">
                 Featured
               </motion.h2>
-              <button className=" whitespace-nowrap text-xl font-semibold px-6 py-2 rounded-md border-accent border-2">
+              <button className="px-6 py-2 text-xl font-semibold border-2 rounded-md whitespace-nowrap border-accent">
                 All products
               </button>
             </div>
 
-            <div className="flex  flex-col items-center justify-center w-full gap-2 px-12  sm:gap-4 lg:gap-8 md:items-start">
+            <div className="flex flex-col items-center justify-center w-full gap-2 px-12 sm:gap-4 lg:gap-8 md:items-start">
               {/* <div className="md:h-10 md:w-0.5 h-0.5 w-10 bg-neutral"></div> */}
               <Categories
                 data={DATA}

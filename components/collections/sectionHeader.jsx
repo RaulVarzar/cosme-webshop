@@ -32,7 +32,7 @@ export const Header = () => {
     <motion.div
       ref={ref}
       style={{ y, scale }}
-      className="flex flex-col  justify-center w-full mx-auto sm:min-h-[70vh] gap-6 py-8 md:pl-2 lg:pl-6 text-center md:pr-6  md:text-right text-balance"
+      className="flex flex-col  justify-center w-full mx-auto sm:min-h-[70vh] gap-6 py-2 md:pl-2 lg:pl-6  text-center md:pr-6  md:text-right text-balance"
     >
       <Title />
       <Description />

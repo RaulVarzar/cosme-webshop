@@ -66,7 +66,7 @@ export const Collection = ({ data }) => {
         onHoverEnd={() => setHovering(false)}
         whileTap={{ scale: 0.96, translateY: "5px" }}
         ref={ref}
-        className="relative flex flex-col  items-center justify-center w-full h-fit gap-6 px-8 py-3 overflow-hidden cursor-pointer sm:py-6 md:py-8 md:w-fit rounded-2xl md:flex-row lg:flex-row"
+        className="relative flex flex-col items-center justify-center w-full gap-6 px-8 py-3 overflow-hidden cursor-pointer h-fit sm:py-6 md:py-8 md:w-fit rounded-2xl lg:flex-row"
       >
         <AnimatePresence>
           {hovering && (
@@ -82,7 +82,7 @@ export const Collection = ({ data }) => {
         <motion.img
           src={`collections/${data.photo}`}
           alt={data.photo}
-          className="z-20 rounded-2xl md:max-w-60 lg:max-w-80 xl:max-w-xl "
+          className="z-20 rounded-2xl md:max-w-72 lg:max-w-80 xl:max-w-xl "
         />
 
         <motion.div
