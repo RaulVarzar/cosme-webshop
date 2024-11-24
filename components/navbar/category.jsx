@@ -66,6 +66,7 @@ export const Category = ({ title, categories, open }) => {
           };
           return (
             <motion.li
+              key={i}
               onHoverStart={() => setHovering(item)}
               onHoverEnd={() => setHovering(null)}
               initial={{ opacity: 0, x: "-50px" }}

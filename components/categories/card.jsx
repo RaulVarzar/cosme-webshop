@@ -1,13 +1,8 @@
 "use client";
-import { forwardRef, useEffect, useState } from "react";
-import {
-  useScroll,
-  useTransform,
-  motion,
-  useAnimationControls,
-} from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, useAnimationControls } from "framer-motion";
 
-const Card = forwardRef(function (props, ref) {
+export default function Card({ ...props }) {
   const [hovering, setHovering] = useState(false);
 
   const variants = {
@@ -26,13 +21,6 @@ const Card = forwardRef(function (props, ref) {
       scale: "1",
     },
   };
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "start start"],
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 1], ["100%", "85%"]);
 
   const controls = useAnimationControls();
   const imgControls = useAnimationControls();
@@ -78,6 +66,4 @@ const Card = forwardRef(function (props, ref) {
       </div>
     </motion.div>
   );
-});
-
-export default Card;
+}

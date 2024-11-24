@@ -1,5 +1,5 @@
 import { Newsletter } from "@/components/newsletter/newsletter";
-import Carousel from "../components/carousel/carousel";
+import Carousel from "../components/categories/categories";
 import Footer from "../components/footer/footer";
 import Hero from "../components/heroSection/hero";
 import Navbar from "../components/navbar/navbar";
